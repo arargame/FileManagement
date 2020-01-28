@@ -1,0 +1,9 @@
+﻿-Dsv.cs
+            Dsv csv = new Dsv(FileManagement.File.CombinePaths(FileManagement.File.CurrentUserDesktopPath, "Gelen İstekler.csv"),';');
+            var results = csv.Split(13, false);
+-IsolatedStorage.cs
+			var isolatedFile = new TextFile("deneme",".csv");
+
+            isolatedFile.WriteLineByStreamWriter(results, isolatedFile.GetIsolatedStorageFileStream());
+
+            var lines = isolatedFile.ReadLineByStreamReader(csv.GetIsolatedStorageFileStream());

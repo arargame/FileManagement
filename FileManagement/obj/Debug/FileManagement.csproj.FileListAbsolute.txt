@@ -1,0 +1,21 @@
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\FileManagement\obj\Debug\FileManagement.csprojResolveAssemblyReference.cache
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\FileManagement\bin\Debug\FileManagement.dll
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\FileManagement\bin\Debug\FileManagement.pdb
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\FileManagement\obj\Debug\FileManagement.dll
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\FileManagement\obj\Debug\FileManagement.pdb
+C:\Users\karar\Desktop\DPGitHub\filemanagement\FileManagement\bin\Debug\FileManagement.dll
+C:\Users\karar\Desktop\DPGitHub\filemanagement\FileManagement\bin\Debug\FileManagement.pdb
+C:\Users\karar\Desktop\DPGitHub\filemanagement\FileManagement\obj\Debug\FileManagement.dll
+C:\Users\karar\Desktop\DPGitHub\filemanagement\FileManagement\obj\Debug\FileManagement.pdb
+C:\Users\karar\Desktop\DPGitHub\filemanagement\FileManagement\obj\Debug\FileManagement.csprojResolveAssemblyReference.cache
+C:\Users\karar\Desktop\DPGitHub\filemanagement\FileManagement\bin\Debug\Newtonsoft.Json.dll
+C:\Users\karar\Desktop\DPGitHub\filemanagement\FileManagement\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ararg\Source\Repos\filemanagement\FileManagement\bin\Debug\FileManagement.dll
+C:\Users\ararg\Source\Repos\filemanagement\FileManagement\bin\Debug\FileManagement.pdb
+C:\Users\ararg\Source\Repos\filemanagement\FileManagement\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ararg\Source\Repos\filemanagement\FileManagement\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ararg\Source\Repos\filemanagement\FileManagement\obj\Debug\FileManagement.csprojAssemblyReference.cache
+C:\Users\ararg\Source\Repos\filemanagement\FileManagement\obj\Debug\FileManagement.csproj.CoreCompileInputs.cache
+C:\Users\ararg\Source\Repos\filemanagement\FileManagement\obj\Debug\FileManagement.csproj.CopyComplete
+C:\Users\ararg\Source\Repos\filemanagement\FileManagement\obj\Debug\FileManagement.dll
+C:\Users\ararg\Source\Repos\filemanagement\FileManagement\obj\Debug\FileManagement.pdb

@@ -1,0 +1,30 @@
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\TestProject\bin\Debug\TestProject.exe.config
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\TestProject\bin\Debug\TestProject.exe
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\TestProject\bin\Debug\TestProject.pdb
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\TestProject\obj\Debug\TestProject.exe
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\TestProject\obj\Debug\TestProject.pdb
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\TestProject\bin\Debug\FileManagement.dll
+c:\users\karar\documents\visual studio 2013\Projects\FileManagement\TestProject\bin\Debug\FileManagement.pdb
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\bin\Debug\TestProject.exe.config
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\obj\Debug\TestProject.exe
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\obj\Debug\TestProject.pdb
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\bin\Debug\TestProject.exe
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\bin\Debug\TestProject.pdb
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\bin\Debug\FileManagement.dll
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\bin\Debug\FileManagement.pdb
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\karar\Desktop\DPGitHub\filemanagement\TestProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\bin\Debug\TestProject.exe.config
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\bin\Debug\TestProject.exe
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\bin\Debug\TestProject.pdb
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\bin\Debug\FileManagement.dll
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\bin\Debug\FileManagement.pdb
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\obj\Debug\TestProject.csprojAssemblyReference.cache
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\obj\Debug\TestProject.csproj.CoreCompileInputs.cache
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\obj\Debug\TestProject.csproj.CopyComplete
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\obj\Debug\TestProject.exe
+C:\Users\ararg\Source\Repos\filemanagement\TestProject\obj\Debug\TestProject.pdb
