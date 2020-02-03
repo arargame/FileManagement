@@ -20,7 +20,7 @@ namespace FileManagement
 
         public SerializationType SerializationType { get; private set; }
 
-        public string JsonString { get; private set; }
+        public string JsonString { get; set; }
 
         public Serializer(CustomFile file)
         {
@@ -61,16 +61,16 @@ namespace FileManagement
             //}
         }
 
-        public static CustomFile ConvertToFile(string fileName,string extension,object value)
-        {
-            var jsonString = Serializer.Serialize(value);
+        //public static CustomFile ConvertToFile(string fileName,string extension,object value)
+        //{
+        //    var jsonString = Serialize(value);
 
-            var file = new CustomFile(fileName, extension, CustomFile.StringToByteArray(jsonString));
+        //    var file = new CustomFile(fileName, extension, CustomFile.StringToByteArray(jsonString));
 
-            file.SetSerializer();
+        //    file.SetSerializer();
 
-            return file;
-        }
+        //    return file;
+        //}
 
         public object Deserialize()
         {

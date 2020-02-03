@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,14 +8,20 @@ using System.Threading.Tasks;
 
 namespace FileManagement.FileType
 {
-    public class Json : CustomFile
+    public class JsonFile : CustomFile
     {
         #region Properties
         #endregion
 
         #region Constructor
-        public Json(string path)
-            : base(path)
+        public JsonFile(string fileName, string extension = ".json")
+    : base(fileName, extension)
+        {
+
+        }
+
+        public JsonFile(string path, bool createNewIfNotExists)
+            : base(path, createNewIfNotExists)
         {
 
         }
@@ -47,6 +54,8 @@ namespace FileManagement.FileType
         //    ms.Close();
         //    return deserializedUser;BinaryFormatter 
         //}
+
+
         #endregion
     }
 }

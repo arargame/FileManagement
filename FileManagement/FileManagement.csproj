@@ -48,13 +48,14 @@
     <Compile Include="CustomFile.cs" />
     <Compile Include="FileType\Dsv.cs" />
     <Compile Include="FileType\Image.cs" />
-    <Compile Include="FileType\Json.cs" />
+    <Compile Include="FileType\JsonFile.cs" />
     <Compile Include="FileType\TextFile.cs" />
     <Compile Include="IsolatedStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ToDos.txt" />
     <Content Include="Usage.txt" />
   </ItemGroup>
   <ItemGroup>

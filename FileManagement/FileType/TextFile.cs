@@ -9,18 +9,16 @@ namespace FileManagement.FileType
 {
     public class TextFile : CustomFile
     {
-        public TextFile(string fileName, string extension = "txt", byte[] data = null)
-            : base(fileName, extension, data)
+        public TextFile(string fileName, string extension = ".txt")
+            : base(fileName, extension)
         {
 
         }
 
-        public TextFile(string path) : base(path)
+        public TextFile(string path, bool createIfNotExists) : base(path, createIfNotExists)
         {
 
         }
-
-
 
         public List<string> ReadLineByStreamReader(Stream stream = null)
         {

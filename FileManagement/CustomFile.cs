@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -62,7 +63,23 @@ namespace FileManagement
 
         public IsolatedStorage IsolatedStorage { get; private set; }
 
-        public Serializer Serializer { get; set; }
+        //public Serializer Serializer { get; set; }
+
+        //public void Serialize()
+        //{
+        //    if (Serializer == null)
+        //        SetSerializer();
+
+        //    Serializer.Serialize();
+        //}
+
+        //public void Serialize(object value)
+        //{
+        //    if (Serializer == null)
+        //        SetSerializer();
+
+        //    Serializer.JsonString = Serializer.Serialize(value);
+        //}
 
         public Action<Exception> LogAction { get; set; }
 
@@ -128,30 +145,21 @@ namespace FileManagement
 
         public CustomFile() 
         {
-            Initialize();
         }
 
-        public CustomFile(string path)
+        public CustomFile(string path, bool createNewIfNotExists = true)
         {
-            SetData(path);
+            if (createNewIfNotExists)
+                CreateNewIfNotExists(path);
 
-            Initialize();
+            SetDataFromPath(path);
         }
 
-        public CustomFile(string fileName, string extension, byte[] data = null)
+        public CustomFile(string fileName, string extension)
         {
             SetName(fileName);
 
             SetExtension(extension);
-
-            SetData(data);
-
-            Initialize();
-        }
-
-        public virtual void Initialize()
-        {
-            //SetIsolatedStorage();
         }
 
         #endregion
@@ -180,22 +188,48 @@ namespace FileManagement
             return new MemoryStream(Data);
         }
 
-        public byte[] ReadAllBytes()
+        public bool CreateNewIfNotExists(string path)
+        {
+            try
+            {
+                if (!System.IO.File.Exists(path))
+                {
+                    using (FileStream fs = File.Create(path))
+                    {
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogAction?.Invoke(ex);
+
+                return false;
+            }
+
+            return true;
+        }
+
+        public byte[] ReadAllBytes(string path)
         {
             return ReadAllBytes(PathToRead, LogAction);
         }
 
-        public CustomFile SetData(string path)
+        public CustomFile SetDataFromPath(string path)
         {
             try
             {
-                if (!Exists(path))
-                    throw new Exception(string.Format("The file : '{0}' doesnt exists", path));
+                //if (!Exists(path))
+                //{
+
+                //    System.IO.File.Create(path);
+
+                //    //throw new Exception(string.Format("The file : '{0}' doesnt exists", path));
+                //}
 
                 SetPathToRead(path);
                 SetPathToWrite(path);
 
-                Data = ReadAllBytes();
+                Data = ReadAllBytes(path);
 
                 SetExtension(System.IO.Path.GetExtension(path));
 
@@ -205,16 +239,22 @@ namespace FileManagement
             }
             catch (Exception ex)
             {
-                if (LogAction != null)
-                    LogAction(ex);
+                LogAction?.Invoke(ex);
             }
 
             return this;
         }
 
-        private CustomFile SetData(byte[] data)
+        public CustomFile SetData(byte[] data)
         {
             Data = data;
+
+            return this;
+        }
+
+        public CustomFile SetData(string text)
+        {
+            Data = StringToByteArray(text);
 
             return this;
         }
@@ -271,20 +311,41 @@ namespace FileManagement
             return this;
         }
 
-        public Serializer SetSerializer()
-        {
-            Serializer = new Serializer(this);
+        //public Serializer SetSerializer()
+        //{
+        //    Serializer = new Serializer(this);
 
-            return Serializer;
+        //    return Serializer;
+        //}
+
+        public bool SaveAs(string path, string fileName, string extension, byte[] data = null)
+        {
+            path = CombinePaths(path, fileName + extension);
+
+            return WriteAllBytes(path, data);
         }
 
-        public void WriteAllBytes(byte[] data = null)
+        public bool SaveAs(string path, string fileName, string extension, string text, Encoding encoding = null)
+        {
+            encoding = encoding ?? Encoding.UTF8;
+
+            return SaveAs(path, fileName, extension, StringToByteArray(text, encoding));
+        }
+
+        public bool SaveAs(string path)
+        {
+            return SaveAs(path, Name, Extension, Data);
+        }
+
+        public bool WriteAllBytes(string path = null,byte[] data = null)
         {
             //string.Format("{0}-Compressed.gz", DateTime.Now.ToString("[yyyy-MM-dd HH-mm-ss-fff]")
 
+            path = path ?? PathToWrite;
+
             data = data ?? Data;
 
-            WriteAllBytes(PathToWrite, data, LogAction);
+            return WriteAllBytes(path, data, LogAction);
         }
         #endregion
 
@@ -306,7 +367,28 @@ namespace FileManagement
 
         public static string CombinePaths(params string[] paths)
         {
-            return System.IO.Path.Combine(paths);
+            var combinedPath = System.IO.Path.Combine(paths);
+
+            return combinedPath;
+        }
+
+        public static bool CreateIfNotExists(string path,Action<Exception> logAction = null)
+        {
+            try
+            {
+                if (!System.IO.File.Exists(path))
+                {
+                    System.IO.File.Create(path);
+                }
+            }
+            catch (Exception ex)
+            {
+                logAction?.Invoke(ex);
+
+                return false;
+            }
+
+            return true;
         }
 
         public static List<string> DirectoryGetFiles(string path)
@@ -351,14 +433,13 @@ namespace FileManagement
             }
             catch (Exception ex)
             {
-                if (logAction != null)
-                    logAction(ex);
+                logAction?.Invoke(ex);
             }
 
             return array;
         }
 
-        public static void WriteAllBytes(string path, byte[] data, Action<Exception> logAction)
+        public static bool WriteAllBytes(string path, byte[] data, Action<Exception> logAction)
         {
             try
             {
@@ -366,9 +447,27 @@ namespace FileManagement
             }
             catch (Exception ex)
             {
-                if (logAction != null)
-                    logAction(ex);
+                logAction?.Invoke(ex);
+
+                return false;
             }
+
+            return true;
+        }
+
+        public static string SerializeAsJsonFormat(object value)
+        {
+            return JsonConvert.SerializeObject(value);
+        }
+
+        public static object DeserializeAsJsonFormat(string jsonString)
+        {
+            return JsonConvert.DeserializeObject(jsonString);
+        }
+
+        public static T DeserializeAsJsonFormat<T>(string jsonString)
+        {
+            return JsonConvert.DeserializeObject<T>(jsonString);
         }
 
         #endregion

@@ -13,8 +13,8 @@ namespace FileManagement.FileType
     {
         public char Separator { get; private set; }
 
-        public Dsv(string fileName,byte[] data, string extension = "csv", char separator = ',')
-            : base(fileName, extension, data)
+        public Dsv(string fileName, string extension = ".csv", char separator = ',')
+            : base(fileName, extension)
         {
             SetSeparator(separator);
         }

@@ -110,8 +110,8 @@ namespace FileManagement.FileType
             Alt = altText;
         }
 
-        public Image(string fileName, string extension, byte[] data, string altText = "Alt")
-            : base(fileName, extension, data)
+        public Image(string fileName, string extension, string altText = "Alt")
+            : base(fileName, extension)
         {
             Alt = altText;
 
@@ -128,15 +128,23 @@ namespace FileManagement.FileType
 
         public Image Resize(int width, int height)
         {
-            return new Image(Name, Extension, ImageToByteArray(Resize(DrawingImage, width, height)));
+            var newImage =  new Image(Name, Extension);
+
+            newImage.SetData(ImageToByteArray(Resize(DrawingImage, width, height)));
+
+            return newImage;
         }
 
         public Image GetThumbnail()
         {
+            Image newImage = new Image(Name, Extension);
+
             if (ThumbnailSize != null)
-                return new Image(Name, Extension, ImageToByteArray(Resize(DrawingImage, ThumbnailSize.Value.Width, ThumbnailSize.Value.Height)));
+                newImage.SetData(ImageToByteArray(Resize(DrawingImage, ThumbnailSize.Value.Width, ThumbnailSize.Value.Height)));
             else
-                return new Image(Name, Extension, ImageToByteArray(Resize(DrawingImage, 100, 100)));
+                newImage.SetData(ImageToByteArray(Resize(DrawingImage, 100, 100)));
+
+            return newImage;
         }
 
         public static Bitmap Resize(System.Drawing.Image image, int width, int height,Action<Exception> logAction = null)

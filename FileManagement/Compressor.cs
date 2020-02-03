@@ -45,7 +45,7 @@ namespace FileManagement
 
         public Compressor Save()
         {
-            File.WriteAllBytes(CompressedData);
+            File.WriteAllBytes(null, CompressedData);
 
             return this;
         }

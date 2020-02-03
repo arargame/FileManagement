@@ -7,3 +7,22 @@
             isolatedFile.WriteLineByStreamWriter(results, isolatedFile.GetIsolatedStorageFileStream());
 
             var lines = isolatedFile.ReadLineByStreamReader(csv.GetIsolatedStorageFileStream());
+-CustomFile.cs
+            var customFile = new CustomFile(CustomFile.CombinePaths(CustomFile.CurrentProjectBinPath, "def.png"), true);
+
+            var cffas=customFile.DataAsString;
+
+            var customFile2 = new CustomFile("efg",".png",CustomFile.ReadAllBytes(CustomFile.CombinePaths(CustomFile.CurrentUserDesktopPath, "SetFunction.txt"),null));
+
+            var cffas2 = customFile2.DataAsString;
+Text.cs
+	            var txtFile = new TextFile("abc");
+            txtFile.SetData("Hello saturn");
+            var bb = txtFile.SaveAs(CustomFile.CurrentProjectBinPath);
+Json
+	            //var jsonFile = new CustomFile("myJson");
+            //jsonFile.SetData(CustomFile.SerializeAsJsonFormat(t2020));
+            //var bbb = jsonFile.SaveAs(CustomFile.CurrentProjectBinPath);
+
+            var jsonFile2 = new CustomFile(CustomFile.CombinePaths(CustomFile.CurrentProjectBinPath,"myJson.json"));
+            var objTT = CustomFile.DeserializeAsJsonFormat<List<Team>>(jsonFile2.DataAsString);
